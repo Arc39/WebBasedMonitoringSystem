@@ -2,6 +2,7 @@
 import os, flask, flask_socketio,requests
 from flask_socketio import emit,send
 import json
+from flask import jsonify
 from requests.auth import HTTPDigestAuth
 app = flask.Flask(__name__)
 
