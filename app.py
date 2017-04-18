@@ -33,6 +33,11 @@ def message(message):
  #Verify not necessary: TODO: Verify = FALSE should not skip authentication.
  r=requests.get(link,auth=HTTPDigestAuth('anon','the quick brown fox'))
  data = r.json()
+ link = "http://"+ str(message["hostName"]) + ":"+str(message["portNumber"]) + '/id/identify'
+ r=requests.get(link,auth=HTTPDigestAuth('anon','the quick brown fox'))
+ name=r.json()
+ data.append({"name":name["name"]})
+ print json.dumps(data,indent=2)
  emit ('summary_info',data)
 
 @socketio.on('localData')
