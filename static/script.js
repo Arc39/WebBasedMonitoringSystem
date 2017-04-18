@@ -95,10 +95,12 @@ socket.on('summary_info',function(data){
     var stateTotals=data[0]["state totals"];
     var currentStates = data[0]["states"];
     var numOfStates = data[0]["states"].length;
+    //If ran locally data[3] will not be defined
     if(data[3]!=undefined)
     {
     suiteName = data[3]["name"];
   }
+  //set suiteName when rest of the data comin in
   $("#nameOfSuite").text(suiteName);
     //console.log(suiteName);
 
